@@ -37,7 +37,9 @@ const showUi10Data = (data) =>{
           <p class="font-bold">Share price: <span class="font-light">${financialAssets ? financialAssets.forEach(e => e.sharePrice) : 'Not found money'}</span></p>
           <p class="font-bold">Position: <span class="font-light">${position}</span></p>  
           <div class="card-actions justify-end">
-            <button class="btn btn-primary">Listen</button>
+
+        <!-- The button to open modal -->
+        <label for="my-modal-6" onclick="modalFunc('${element}')" class="btn">Details</label>
           </div>
         </div>
       </div>
@@ -51,4 +53,21 @@ const showUi10Data = (data) =>{
         // console.log(typeof financialAssets == 'undefined' ? 'data not defiend' : financialAssets[0]);
         console.log(element);
     });
+}
+
+const modalFunc = (data) =>{
+  // console.log(data);
+  const modalBox = document.getElementById('modal-box');
+  modalBox.innerHTML = `
+  <h3 class="font-bold text-lg">
+  ${data.city}
+</h3>
+<p class="py-4">
+  You've been selected for a chance to get one year of subscription
+  to use Wikipedia for free!
+</p>
+<div class="modal-action">
+  <label for="my-modal-6" class="btn">Yay!</label>
+  `
+  console.log(data);
 }
